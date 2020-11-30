@@ -31,8 +31,11 @@ function setup() {
 
 	engine = Engine.create();
 	world = engine.world;
-
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:3, isStatic:true});
+        
+	var pakage_options={
+    		isStatic: true
+	}
+	packageBody = Bodies.circle(width/2 , 200 , 5 , pakage_options);
 	World.add(world, packageBody);
 
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
@@ -56,7 +59,9 @@ function draw() {
 
 function keyPressed() {
 	if (keyCode===DOWN_ARROW) {
-		Bodies.setStatic(packageBody,false);
+		pakage_options={
+    			isStatic: false
+		}	
 	}
 
 }
